@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>April3</title>
+  </head>
+  <body>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    </style>
+    <p>
+      Đề bài: Viết một chương trình JavaScript để tạo một đối tượng có các thuộc
+      tính như sau:
+    </p>
+    <!-- textfield -->
+    <textarea id="ta"></textarea>
+    <button style="width: 100; height: 100">submit</button>
+    <script>
+      const btn = document.querySelector("button");
+      var ta = document.getElementById("ta");
+      btn.addEventListener("click", () => {
+        var ans = ta.value;
+        //get from server and set value to ta
+
+        fetch("http://tin12q.live:5000/abcd")
+          .then((response) => response.text())
+          .then((data) => (ta.value = data))
+          .catch((error) => (ta.value = error));
+      });
+    </script>
+  </body>
+</html>
